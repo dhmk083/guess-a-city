@@ -1,0 +1,128 @@
+@import "variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0px #666;
+  height: 500px;
+}
+
+.spinnerWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 5px solid $main;
+  border-top-color: #aaa;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: red;
+
+  > * {
+    margin-bottom: 1em;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #aaa;
+}
+
+.icon {
+  width: 32px;
+  margin-right: 2em;
+}
+
+.caption {
+  flex: 1;
+}
+
+.index {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.cityImage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.choices {
+  $gap: 0.5em;
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: $gap;
+  border-top: 1px solid #aaa;
+
+  > * {
+    margin: $gap;
+    width: 100%;
+
+    @media (min-width: 40rem) {
+      width: calc(50% - 2 * $gap);
+    }
+    @media (min-width: 100rem) {
+      width: calc(25% - 2 * $gap);
+    }
+  }
+}
+
+@mixin guessed($bg) {
+  background-color: $bg;
+  color: white;
+  border-color: black;
+}
+
+.wrong {
+  @include guessed(red);
+}
+
+.correct {
+  @include guessed(green);
+  animation: blink-correct 0.2s alternate 5;
+}
+
+@keyframes blink-correct {
+  from {
+    background-color: black;
+  }
+  to {
+    background-color: green;
+  }
+}

@@ -1,0 +1,25 @@
+@import "variables";
+
+$header_height: 5em;
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: $header_height;
+  display: flex;
+
+  > * {
+    flex: 1;
+  }
+}
+
+.main {
+  margin-top: $header_height;
+  flex: 1;
+}

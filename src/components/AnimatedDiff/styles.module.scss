@@ -1,0 +1,10 @@
+.idle {
+  transition: none;
+  opacity: 0;
+}
+
+.enterActive {
+  transition: transform linear, opacity;
+  transform: translate(0, -100%);
+  opacity: 1;
+}

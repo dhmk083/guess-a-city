@@ -1,0 +1,25 @@
+.button {
+  $bg: white;
+
+  background-color: $bg;
+  padding: 0.5em 1em;
+  border: 1px solid darken($bg, 70%);
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+
+  &:enabled {
+    &:hover {
+      background-color: darken($bg, 20%);
+    }
+
+    &:active {
+      background-color: darken($bg, 50%);
+    }
+  }
+
+  &:disabled {
+    cursor: auto;
+    border-color: darken($bg, 20%);
+  }
+}

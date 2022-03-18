@@ -1,0 +1,15 @@
+@import "variables";
+
+.wrap {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $main;
+  color: $text;
+
+  a {
+    color: rgb(0, 217, 255);
+    text-decoration: underline;
+  }
+}
